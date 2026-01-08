@@ -532,7 +532,7 @@ function selectLanguageForDate(date, preferredLanguage = null) {
 async function fetchAvailableDates() {
   try {
     // 从 data 分支获取文件列表
-    const fileListUrl = DATA_CONFIG.getDataUrl('assets/file-list.txt');
+    const fileListUrl = DATA_CONFIG.getDataUrl('assets/file-list.txt') + '?t=' + new Date().getTime();
     const response = await fetch(fileListUrl);
     if (!response.ok) {
       console.error('Error fetching file list:', response.status);
